@@ -5,7 +5,10 @@
   Bonus: Use RegEx to create the array
 */
 function reverseString(str) {
-
+  // var stringArr = str.split('');
+  return str.split('').reverse().reduce(function (prev, curr) {
+    return prev += curr;
+  });
 }
 
 /**
@@ -17,7 +20,13 @@ function reverseString(str) {
   Then convert the array to a string and return it.
 */
 function spliceString(str, char) {
-
+  var strArr = str.split('');
+  strArr.unshift(strArr.pop());
+  strArr.splice(-1, 0, char);
+  return strArr.join('');
+  // return strArr.reduce(function (prev, curr) {
+  //   return prev += curr;
+  // });
 }
 
 /**
@@ -28,5 +37,10 @@ function spliceString(str, char) {
   Instead of "ickenchay", it should just become "hickencay".
 */
 function speakPigLatin(strArray) {
-
+  return strArray.map(function (word) {
+    var wordArr = word.split('');
+    var firstChar = wordArr.shift();
+    wordArr.push(firstChar, 'ay');
+    return wordArr.join('');
+  });
 }
